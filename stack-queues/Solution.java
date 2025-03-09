@@ -12,11 +12,18 @@ public class Solution {
         // myStack.pop();
         // System.out.println(myStack.peek());
 
-        MyQueue myQueue = new MyQueue();
-        myQueue.enqueue(1);
-        myQueue.enqueue(2);
+        // MyQueue myQueue = new MyQueue();
+        // myQueue.enqueue(1);
+        // myQueue.enqueue(2);
+        // System.out.println(myQueue.peek());
+        // myQueue.dequeue();
+        // System.out.println(myQueue.peek());
+
+        QueueUsingStack myQueue = new QueueUsingStack();
+        myQueue.push(1);
+        myQueue.push(2);
         System.out.println(myQueue.peek());
-        myQueue.dequeue();
+        myQueue.pop();
         System.out.println(myQueue.peek());
     }
 }
