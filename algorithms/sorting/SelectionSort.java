@@ -8,6 +8,9 @@ class SelectionSort {
     }
 
     private static void selectionSort(int[] arr) {
+        if (arr.length <= 1) 
+            return;
+
         for (int i = 0; i < arr.length; i++) {
             int smallestIndex = i;
             for (int j = i + 1; j < arr.length; j++) {
