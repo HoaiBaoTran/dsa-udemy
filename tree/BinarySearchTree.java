@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 class BinarySearchTree {
     private Node root;
 
@@ -132,5 +137,46 @@ class BinarySearchTree {
             }
         }
         return true;
+    }
+
+    public void breathFirstSearch() {
+        Node currentNode = this.root;
+        List<Integer> list = new ArrayList<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(currentNode);
+        while (queue.size() > 0) {
+            currentNode = queue.poll();
+            list.add(currentNode.getData());
+            if (currentNode.getLeft() != null) {
+                queue.add(currentNode.getLeft());
+            }
+
+            if (currentNode.getRight() != null) {
+                queue.add(currentNode.getRight());
+            }
+        }
+
+        for (Integer data : list) {
+            System.out.print(data + " ");
+        }
+    }
+
+    public List<Integer> breathFirstSearchRecursive(Queue<Node> queue, List<Integer> list) {
+        // base case
+        if (queue.size() == 0) {
+            return list;
+        }
+
+        Node currentNode = queue.poll();
+        list.add(currentNode.getData());
+        if (currentNode.getLeft() != null) {
+            queue.add(currentNode.getLeft());
+        }
+        if (currentNode.getRight() != null) {
+            queue.add(currentNode.getRight());        
+        }
+
+        return breathFirstSearchRecursive(queue, list);
+
     }
 }
