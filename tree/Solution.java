@@ -28,7 +28,22 @@ class Solution {
         List<Integer> list = tree.breathFirstSearchRecursive(
                 queue,
                 new ArrayList<Integer>());
+        printList(list);
 
+        list = tree.depthFirstSearchInOrder();
+        System.out.println("In Order");
+        printList(list);
+
+        System.out.println("Pre Order");
+        list = tree.depthFirstSearchPreOrder();
+        printList(list);
+
+        System.out.println("Post Order");
+        list = tree.depthFirstSearchPostOrder();
+        printList(list);
+    }
+
+    private static void printList(List<Integer> list) {
         for (Integer data : list) {
             System.out.print(data + " ");
         }

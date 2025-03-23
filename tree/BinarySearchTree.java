@@ -173,10 +173,57 @@ class BinarySearchTree {
             queue.add(currentNode.getLeft());
         }
         if (currentNode.getRight() != null) {
-            queue.add(currentNode.getRight());        
+            queue.add(currentNode.getRight());
         }
 
         return breathFirstSearchRecursive(queue, list);
 
     }
+
+    public List<Integer> depthFirstSearchInOrder() {
+        return traverseInOder(this.root, new ArrayList<Integer>());
+    }
+
+    private List<Integer> traverseInOder(Node node, List<Integer> list) {
+        if (node.getLeft() != null) {
+            traverseInOder(node.getLeft(), list);
+        }
+        list.add(node.getData());
+        if (node.getRight() != null) {
+            traverseInOder(node.getRight(), list);
+        }
+        return list;
+    }
+
+    public List<Integer> depthFirstSearchPreOrder() {
+        return traversePreOrder(this.root, new ArrayList<Integer>());
+    }
+
+    private List<Integer> traversePreOrder(Node node, List<Integer> list) {
+        list.add(node.getData());
+        if (node.getLeft() != null) {
+            traversePreOrder(node.getLeft(), list);
+        }
+        if (node.getRight() != null) {
+            traversePreOrder(node.getRight(), list);
+        }
+        return list;
+    }
+
+    public List<Integer> depthFirstSearchPostOrder() {
+        return traversePostOrder(this.root, new ArrayList<Integer>());
+
+    }
+
+    private List<Integer> traversePostOrder(Node node, List<Integer> list) {
+        if (node.getLeft() != null) {
+            traversePostOrder(node.getLeft(), list);
+        }
+        if (node.getRight() != null) {
+            traversePostOrder(node.getRight(), list);
+        }
+        list.add(node.getData());
+        return list;
+    }
+
 }
